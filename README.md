@@ -1,13 +1,13 @@
 # Inter-Vlan-routing-com-DHCP
 Este laboratório simula um ambiente corporativo básico, com segmentação de rede utilizando VLANs, comunicação entre redes via roteamento inter-VLAN (Router-on-a-Stick) e distribuição automática de IPs via DHCP.  O objetivo é demonstrar conhecimento prático em infraestrutura de redes, seguindo boas práticas utilizadas em ambientes reais.
 
-📌 Topologia do Ambiente
+```📌 Topologia do Ambiente
 2 Switches Layer 2
 1 Roteador (Router-on-a-Stick)
 3 VLANs- 3PCs cada
 Trunk entre switches
 📷 Ver imagem da topologia em /topology/topology.png
-
+```
 
 
 Trunk entre switch e roteador
