@@ -1,86 +1,43 @@
-# Inter-Vlan-routing-com-DHCP
-Este laboratório simula um ambiente corporativo básico, com segmentação de rede utilizando VLANs, comunicação entre redes via roteamento inter-VLAN (Router-on-a-Stick) e distribuição automática de IPs via DHCP.  O objetivo é demonstrar conhecimento prático em infraestrutura de redes, seguindo boas práticas utilizadas em ambientes reais.
+# Corporate Infrastructure: Multi-Switch VLAN Segmentation
 
+## 📌 Project Overview
+This project focuses on the Layer 2 architectural design of a corporate network. The goal was to implement departmental isolation through VLANs across multiple switches, ensuring network efficiency and security by controlling broadcast domains and organizing device connectivity.
+
+## 🚀 Technical Features
+* **Departmental Segmentation:** Precise configuration of named VLANs to isolate departments (e.g., Sales, HR, IT).
+* **VLAN Assignment:** Strategic port assignment on multiple Access Switches.
+* **802.1Q Trunking:** Implementation of trunk links between switches to carry VLAN traffic across the entire topology.
+* **Naming Standardization:** Strict naming convention for both network devices and VLAN IDs for easier troubleshooting.
+
+## 📊 VLAN & Device Inventory
+| Switch Name | VLAN ID | VLAN Name | Purpose |
+| :--- | :--- | :--- | :--- |
+| **S1-CORE** | 10 | **Sales** | Commercial Dept |
+| **S2-ACCESS**| 20 | **Human_Resources** | HR Dept |
+| **S3-ACCESS**| 30 | **IT_Admin** | Network Management |
+
+## ⚙️ Verified Configuration Snippets
+
+### VLAN Creation and Naming
+```bash
+Switch(config)# vlan 10
+Switch(config-vlan)# name Sales
+Switch(config-vlan)# exit
+!
+Switch(config)# interface range fastEthernet 0/1 - 10
+Switch(config-if-range)# switchport mode access
+Switch(config-if-range)# switchport access vlan 10
 ```
-📌 Topologia do Ambiente
-2 Switches Layer 2
-1 Roteador (Router-on-a-Stick)
-3 VLANs- 3PCs cada
-Trunk entre switches
-📷 Ver imagem da topologia em /topology/topology.png
-```
+Trunking Configuration
+````
+Switch(config)# interface gigabitEthernet 0/1
+Switch(config-if)# switchport mode trunk
+````
+🧪 Verification & Results
+VLAN Database: Confirmed via show vlan brief showing all names and active ports.
 
-```
-Trunk entre switch e roteador
-DHCP centralizado no roteador
-```
+Trunk Status: Verified through show interfaces trunk to ensure 802.1Q encapsulation is active.
 
 ````
-🧱 VLANs Configuradas
-VLAN	Nome	Rede
-10	Administrativo	192.168.10.0/24
-20	Financeiro	192.168.20.0/24
-30	TI	192.168.30.0/24
-Cada VLAN representa um setor da empresa, com isolamento de broadcast.
+Developed by [Eduardo]
 ````
-
-````
-🔀 Trunking (802.1Q)
-Porta trunk entre Switch 1 ↔ Switch 2
-Porta trunk entre Switch 1 ↔ Roteador
-VLANs permitidas: 10, 20 e 30
-Encapsulamento: 802.1Q
-📷 Evidência: show interfaces trunk
-````
-
-````
-🌐 Roteamento Inter-VLAN
-O roteamento entre VLANs foi implementado usando Router-on-a-Stick, com subinterfaces no roteador:
-G0/0.10 → VLAN 10
-G0/0.20 → VLAN 20
-G0/0.30 → VLAN 30
-Cada subinterface atua como gateway padrão da sua VLAN.
-📷 Evidência: show ip interface brief
-````
-
-````
-📡 DHCP por VLAN
-O roteador atua como servidor DHCP, com um pool para cada VLAN:
-Entrega automática de IP
-Gateway padrão configurado corretamente
-Isolamento por rede
-Todos os PCs receberam IP automaticamente conforme sua VLAN.
-📷 Evidência: show ip dhcp binding
-````
-
-```´
-🧪 Testes Realizados
-✔ PCs recebem IP via DHCP
-✔ Comunicação entre dispositivos da mesma VLAN
-✔ Comunicação entre VLANs diferentes
-✔ Teste de conectividade usando ping
-📷 Evidência: prints dos testes de ping
-````
-
-```
-🧠 Conceitos Aplicados
-VLANs e segmentação de rede
-Trunk 802.1Q
-Roteamento inter-VLAN
-DHCP em ambientes segmentados
-Boas práticas de organização de rede
-````
-
-````
-📚 Ferramentas Utilizadas
-Cisco Packet Tracer
-Switches Cisco Layer 2
-Roteador Cisco ISR
-CLI Cisco IOS
-````
-
-````
-📌 Autor
-Eduardo
-Estudante de TI focado em Infraestrutura, Redes e Freelancing Técnico
-```
