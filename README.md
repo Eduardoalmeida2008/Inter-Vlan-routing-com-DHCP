@@ -33,7 +33,7 @@ Configured sub-interfaces on the main Router to handle traffic for all three VLA
 
 ### DHCP Addressing Verification
 Verification of a host in the **FINANCEIRO** or **VENDA** department receiving its automated IP configuration from the Router.
-![DHCP Verification](07_pcVLAN10_ip_configurationn.png) 
+![DHCP Verification](07_pcVLAN10_ip_configuration.png) 
 ### End-to-End Connectivity (Inter-VLAN Ping)
 Confirming that the **RH** department can reach the **FINANCEIRO** department through the gateway, proving the routing logic is flawless.
 ![Ping Test Result](09_test-ping_vlan10.png)
