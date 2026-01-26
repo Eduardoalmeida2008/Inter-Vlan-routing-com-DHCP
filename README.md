@@ -7,7 +7,7 @@ This project simulates a common corporate scenario where different departments (
 > **Architecture:** Router-on-a-Stick (Inter-VLAN Routing) ✅
 
 ## 📐 Network Topology
-![Network Topology](./print/01_Topology_Overview.png)
+![Network Topology](01_Topology_Overview.png)
 *Topology showing the central Router acting as the Gateway for multiple VLAN-segmented Switches.*
 
 ## 🛠️ Tech Stack & Protocols
@@ -33,12 +33,12 @@ The Router's physical interface was divided into logical **Sub-interfaces** (e.g
 
 ### Cross-Department Ping
 The ultimate test: a host from the **HR** department successfully communicating with the **IT Support** department.
-![Ping Test Result](./print/02_Ping_Test_Success.png)
+![Ping Test Result](2_Ping_Test_Success.png)
 *Result: 0% packet loss, confirming the Router is correctly switching traffic between sub-interfaces.*
 
 ### Host IP Configuration
 Verification of the static IP scheme and the correct Default Gateway for each segment.
-![IP Configuration Proof](./print/03_IP_Configuration_Verification.png)
+![IP Configuration Proof](03_IP_Configuration_Verification.png)
 
 ## 📁 Repository Structure
 - `/topology`: Cisco Packet Tracer source file (.pkt).
