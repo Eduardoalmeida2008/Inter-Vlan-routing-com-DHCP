@@ -7,7 +7,7 @@ This project simulates a common corporate scenario where different departments (
 > **Architecture:** Router-on-a-Stick (Inter-VLAN Routing) ✅
 
 ## 📐 Network Topology
-![Network Topology](01_Topology_Overview.png)
+![Network Topology](01_logical_topology.png)
 *Topology showing the central Router acting as the Gateway for multiple VLAN-segmented Switches.*
 
 ## 🛠️ Tech Stack & Protocols
